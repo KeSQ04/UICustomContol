@@ -7,6 +7,7 @@ import com.example.uicustomcontol.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    private val num = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -14,6 +15,10 @@ class MainActivity : AppCompatActivity() {
         binding.title.setTitle("首页")
         binding.title.setEdit {
             Toast.makeText(this, "点击了编辑", Toast.LENGTH_LONG).show()
+        }
+
+        binding.btnAdd.setOnClickListener {
+            binding.textnum.text = num.toString()
         }
     }
 }
