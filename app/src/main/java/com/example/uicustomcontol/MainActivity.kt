@@ -28,6 +28,11 @@ class MainActivity : AppCompatActivity() {
             binding.textnum.text = num.toString()
             Save()
         }
+        binding.btnSubtract.setOnClickListener {
+            num--
+            binding.textnum.text = num.toString()
+            Save()
+        }
     }
 
     private fun Save() =
