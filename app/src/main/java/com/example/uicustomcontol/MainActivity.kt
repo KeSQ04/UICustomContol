@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         num = getSharedPreferences("data", Context.MODE_PRIVATE).getInt(KEY_num, 0)
-        binding.textnum.text = num.toString()
+        show()
 
         binding.title.setTitle("首页")
         binding.title.setEdit {
@@ -25,13 +25,11 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnAdd.setOnClickListener {
             num++
-            binding.textnum.text = num.toString()
-            Save()
+            show()
         }
         binding.btnSubtract.setOnClickListener {
             num--
-            binding.textnum.text = num.toString()
-            Save()
+            show()
         }
     }
 
@@ -39,4 +37,8 @@ class MainActivity : AppCompatActivity() {
         getSharedPreferences("data", Context.MODE_PRIVATE).edit().apply { putInt(KEY_num, num) }
             .apply()
 
+    private fun show() {
+        Save()
+        binding.textnum.text = num.toString()
+    }
 }
